@@ -1,0 +1,54 @@
+---
+import Logo from "../components/Logo.astro";
+import Link from '../components/Link.astro';
+import Button from '../components/Button.astro';
+// import ModeSwitch from '../components/ModeSwitch.astro';
+---
+
+<div class="relative py-2">
+  <nav class="w-full flex md:items-center justify-between">
+    <a 
+      href="/" aria-label="Brand"
+      class="text-xl font-semibold focus:outline-hidden focus:opacity-80" 
+    >
+      <Logo
+        textColor="text-blue-800"
+        iconColor="fill-slate-50" 
+        iconBgColor="bg-blue-800" 
+      />
+    </a>
+    <!-- <div class="md:hidden">
+      <button type="button" id="hs-navbar-example-collapse" 
+        aria-expanded="false" aria-controls="hs-navbar-example" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-example"
+        class:list={[
+          "hs-collapse-toggle relative size-9 flex justify-center items-center gap-x-2 rounded-lg border", 
+          "border-slate-200 bg-white text-slate-800 shadow-2xs hover:bg-slate-50 focus:outline-hidden focus:bg-slate-50 disabled:opacity-50 disabled:pointer-events-none"
+        ]} 
+      >
+        <svg 
+          class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" 
+          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        >
+          <line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/>
+        </svg>
+        <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+    </div> -->
+    <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-example-collapse">
+      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+        <Link text="Servicios" href="/#servicios" />
+        <Link text="Nosotros" href="/#nosotros" />
+        <Link text="Testimonios" href="/#testimonios" />
+        <Button text="Cotiza ahora" href="#cotizar" style="hidden md:inline"/>
+      </div>
+    </div>
+    <!-- <div class="pl-4 pr-2">
+      <ModeSwitch />
+    </div> -->
+  </nav>
+</div>

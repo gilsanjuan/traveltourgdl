@@ -1,0 +1,21 @@
+---
+const { title, description, tag, style } = Astro.props;
+---
+
+<section class="mt-24">
+  <header class="pb-4">
+    <h3 class="rounded-full bg-blue-100 text-sm text-blue-600 w-[80px] px-3 py-0.5">
+      {tag}
+    </h3>
+    <h2 class="text-5xl font-title font-bold leading-16">
+      {title}
+    </h2>
+    { description && 
+      <p class="text-base text-pretty sm:text-lg/relaxed">
+        {description}
+      </p>
+
+    }
+  </header>
+  <slot />
+</section>

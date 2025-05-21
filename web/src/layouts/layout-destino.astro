@@ -1,0 +1,49 @@
+---
+import Header from './Header-destino.astro'
+import Footer from './Footer.astro'
+import WhatsappLink from '../components/WhatsappLink.astro'
+import '../styles/global.css'
+
+const { heroImage, navStyle, meta } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Travel & Tours</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content="Travel & Tours de Jalisco a Todo México." />
+		
+		<meta name="og:url" content="https://travel-tours-gdl.com" />
+		<meta name="og:type" content="website" />
+		<meta name="og:title" content={`${meta?.title +  " | Travel & Tours"}`} />
+		<meta name="og:description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="og:image" content="summary_large_image" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:domain" content="travel-tours-gdl.com" />
+		<meta name="twitter:url" content="https://travel-tours-gdl.com" />
+		<meta name="twitter:site" content="@travelandtours" />
+		<meta name="twitter:title" content="Travel & Tours" />
+		<meta name="twitter:description" content="Travel & Tours de Jalisco a Todo México." />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+	</head>
+	<body class="relative w-full bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-200">
+		<Header
+			heroImage={heroImage} 
+		>
+			<slot name="header" />
+		</Header>
+		<main class=" max-w-8xl mx-auto">
+			<slot />
+		</main>
+		<WhatsappLink />
+		<Footer />
+	</body>
+</html>

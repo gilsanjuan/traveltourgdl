@@ -1,0 +1,122 @@
+---
+ const style = [
+ "inline-flex items-center justify-between p-3 w-full cursor-pointer transition-all duration-200 ease-in-out",
+  "text-slate-600 border border-slate-200 hover:text-slate-700 hover:bg-slate-100",
+  "focus:border-blue-700 focus:bg-slate-200 focus:outline-none focus:ring-0",
+  "has-checked:text-slate-700 has-checked:border-slate-300/80", 
+]
+const inputStyle = "border-2 border-t-0 border-l-0 border-r-0"
+const labelStyle = "uppercase text-xs font-normal text-slate-700"
+---
+  
+  <form class="flex bg-slate-50 rounded-lg shadow-md">
+    <fieldset class="">
+      <legend class="sr-only">Reserva tu transporte aquí</legend>
+      <label class:list={[style, "border-b-0 has-checked:bg-slate-200"]}>
+        <div class="block pt-3">
+          <div class="w-full text-xs leading-0 pb-1 font-normal uppercase">Transporte</div>
+          <div class="w-full text-lg font-medium">Punto a punto</div>
+        </div>
+        <input 
+          type="radio" 
+          id="transporte-tipo" 
+          name="tipo-transporte" 
+          value="punto-a-punto" 
+          class="hidden peer" 
+          checked
+        />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+          class="size-6 text-slate-600 opacity-0 transition-all duration-200 ease-in-out peer-checked:opacity-100"
+        >
+          <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </label>
+      
+      <label class:list={[style, " has-checked:bg-slate-200"]}>
+        <div class="block pt-3">
+          <div class="w-full text-xs leading-0 pb-1 font-normal uppercase">Transporte</div>
+          <div class="w-full text-lg font-medium">Fuera de la ciudad</div>
+        </div>
+        <input type="radio" id="transporte-tipo" name="tipo-transporte" value="fuera-de-ciudad" class="hidden peer" required />
+
+        <svg xmlns="http://www.w3.org/2000/svg" 
+          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+          class="size-6 text-slate-600 opacity-0 transition-all duration-200 ease-in-out peer-checked:opacity-100"
+        >
+          <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </label>
+    </fieldset>
+    
+    <div class="flex flex-col w-full">
+      <div class="flex px-3 pt-3 gap-3">
+        <div class="w-1/2">
+          <label for="origen" class="uppercase text-xs font-normal text-slate-700">
+            Origen
+          </label>
+          <select name="origen" id="origen" required
+            class:list={[style, inputStyle, "has-checked:bg-slate-50"]}
+          >
+            <option value="" class="ext-slate-400 hover:bg-slate-200">Selecciona una opción</option>
+            <option value="aeropuerto">Aeropuerto</option>
+            <option value="guadalajara">Guadalajara</option>
+            <option value="tlajomulco">Tlajomulco</option>
+            <option value="tlaquepaque">Tlaquepaque</option>
+            <option value="zapopan">Zapopan</option>
+          </select>
+        </div>
+        <div class="w-1/2">
+          <label for="destino" class:list={labelStyle}>
+            Destino
+          </label>
+          <input type="text" name="destino" id="destino" placeholder="Expo Guadalajara" required
+            class:list={[style, inputStyle]}
+          >
+        </div>						
+      </div>
+
+      <div class="flex flex-col w-full">
+        <div class="p-3 flex gap-2">
+          <div class="w-1/2">
+            <label for="pasajeros" class:list={labelStyle}>Pasajeros</label>
+            <select name="pasajeros" id="pasajeros" class:list={style} required>
+              <option value="1">1 pasajero</option>
+              <option value="2">2 pasajeros</option>
+              <option value="3">3 pasajeros</option>
+              <option value="4">4 pasajeros</option>
+              <option value="5">5 pasajeros</option>
+              <option value="6">6 pasajeros</option>
+              <option value="7">7 pasajeros</option>
+              <option value="8">8 pasajeros</option>
+              <option value="9">9 pasajeros</option>
+              <option value="10">10 pasajeros</option>
+              <option value="11">11 pasajeros</option>
+              <option value="12">12 pasajeros</option>
+              <option value="13">13 pasajeros</option>
+              <option value="14">14 pasajeros</option>
+              <option value="15">15 pasajeros</option>
+              <option value="16">16 pasajeros</option>
+            </select>
+          </div>
+          <div class="w-1/2">
+            <label for="fecha" class:list={labelStyle}>Fecha</label>
+            <div class="flex gap-2">
+              <input 
+                type="date" 
+                name="fecha_salida" 
+                id="fecha_salida"
+                placeholder="Fecha de salida"
+                min={new Date().toISOString().split('T')[0]}
+                class:list={style} 
+                required
+              />
+            </div>
+          </div>
+        </div>
+    </div>
+  
+  </form>

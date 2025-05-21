@@ -1,0 +1,55 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "travel-tour-gdl",
+  "main": "src/app.ts",
+  "compatibility_date": "2025-04-21",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "routes": [
+    {
+      "pattern": "traveltourgdl.com",
+      "custom_domain": true,
+    }
+  ],
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "travel-tour-gdl",
+      "database_id": "60b050cd-3c45-4240-9edf-9a84abc6aff1",
+      "migrations_dir": "src/db/migrations",
+    }
+  ],
+  "send_email": [
+    {
+      "name": "SB",
+      "destination_address": "contacto@traveltourgdl.com",
+    }
+  ],
+  "vars": {
+    "LOG_LEVEL": "debug"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "MY_KV_NAMESPACE",
+  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  //   }
+  // ],
+  // "r2_buckets": [
+  //   {
+  //     "binding": "MY_BUCKET",
+  //     "bucket_name": "my-bucket"
+  //   }
+  // ],
+  // "ai": {
+  //   "binding": "AI"
+  // },
+}

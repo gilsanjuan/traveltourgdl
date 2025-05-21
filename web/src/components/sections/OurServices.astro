@@ -1,0 +1,43 @@
+---
+import CardImage from "../CardImage.astro"
+---
+
+<section>
+  <header class="max-w-lg h-auth md:w-screen">
+    <h3 class="text-base/relaxed text-slate-700 font-medium uppercase">Transporte </h3>
+    <!-- <h3 class="rounded-sm bg-blue-100 text-sm text-blue-600 w-[95px] px-3 py-0.5 mb-1">Transporte</h3> -->
+    <h2 class="text-5xl font-title font-bold">Para toda ocasión</h2>
+    <p class="pt-4 text-lg/relaxed text-pretty sm:text-lg/relaxed">
+      Disfruta de un viaje seguro y cómodo en una van splitter con chofer desde Jalisco a todo México.
+    </p>
+  </header>
+  <div class="pt-10 ps-7 pe-7 grid grid-cols-1 gap-8 lg:grid-cols-3">
+    <CardImage
+      title="Corporativo"
+      titleTag="Transporte"
+      imageUrl="images/corporativo/transporte-corporativo-1.jpg"
+      description="Soluciones de movilidad para empresas, traslados ejecutivos, eventos y logística de personal."
+    />
+    <CardImage
+      title="Bodas y fiestas"
+      titleTag="Transporte para"
+      imageUrl="images/bodas/elegant_private_van.jpg"
+      description="Haz de tu evento algo inolvidable. Transportamos a tus invitados con comodidad, seguridad y estilo."
+    />
+    <CardImage
+      title="Turismo y Viajes"
+      titleTag="Transporte para"
+      imageUrl="images/turismo/tequila_happy_tourists.jpg"
+      description="Conoce México como se debe: con chofer privado, horarios flexibles y paradas a tu medida."
+    />
+    <!-- <div class="flex flex-col gap-4">
+      <h3>
+        <span class="text-sm/relaxed text-blue-600 font-medium uppercase block">Transporte para</span>
+        <span class="text-4xl font-title font-bold">Turismo y Viajes</span>
+      </h3>
+      <p class="text-lg/relaxed">
+        Conoce México como se debe: con chofer privado, horarios flexibles y paradas a tu medida.
+      </p>
+    </div> -->
+  </div>
+</section>

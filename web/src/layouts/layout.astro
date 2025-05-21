@@ -1,0 +1,66 @@
+---
+import Header from './Header.astro'
+import Footer from './Footer.astro'
+import FormJsx from '../features/form/FormHorizontal';
+import WhatsappLink from '../components/WhatsappLink.astro';
+import '../styles/global.css'
+
+const { heroImage, navStyle } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Travel & Tours</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content="Travel & Tours de Jalisco a Todo México." />
+		
+		<meta name="og:url" content="https://travel-tours-gdl.com" />
+		<meta name="og:type" content="website" />
+		<meta name="og:title" content="Travel & Tours" />
+		<meta name="og:description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="og:image" content="summary_large_image" />
+		
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:domain" content="travel-tours-gdl.com" />
+		<meta name="twitter:url" content="https://travel-tours-gdl.com" />
+		<meta name="twitter:site" content="@travelandtours" />
+		<meta name="twitter:title" content="Travel & Tours" />
+		<meta name="twitter:description" content="Travel & Tours de Jalisco a Todo México." />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+	</head>
+	<body class="relative w-full bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-200">
+		<Header
+			heroImage={heroImage} 
+			navStyle={navStyle}
+		>
+			<h2 class="text-slate-50 font-title text-pretty text-6xl/tight font-bold text-shadow-xl text-shadow-white md:text-8xl/tight"
+				style={{ textShadow: "2px 2px 3px rgba(0,0,0,0.6)" }}
+			>
+				Viaja seguro,<br> cómodo 	y a tiempo
+			</h2>
+			<h1 class="text-slate-50 ml-2 mt-4 text-2xl/relaxed text-shadow-xl text-shadow-slate-800 md:text-3xl/relaxed"
+				style={{ textShadow: "1px 2px 3px rgba(0,0,0,0.6)" }}
+			>
+				Servicio de <strong>transporte privado </strong>con <strong>chofer</strong>. <br>
+			</h1>
+			<div slot="form" id="cotizar" class="container mx-auto max-w-5xl shadow-xl mb-10">
+				<div class="mt-6">
+					<FormJsx client:idle />
+				</div>
+			</div>
+		</Header>
+		<main class=" max-w-8xl mx-auto px-8">
+			<slot />
+		</main>
+		<WhatsappLink />
+		<Footer />
+	</body>
+</html>

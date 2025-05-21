@@ -1,0 +1,23 @@
+---
+import CardTestimonial from '../CardTestimonial.astro';
+---
+
+<section>
+  <header class="max-w-2xl pb-4">
+    <h3 class="text-base/relaxed text-slate-700 font-medium uppercase mb-0">Testimonios </h3>
+    <h2 class="text-5xl/relaxed font-title font-bold leading-12 py-2">Lo que dicen nuestros clientes</h2>
+  </header>
+  <div class="grid grid-cols-1 text-xl/relaxed gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-4">
+    <CardTestimonial 
+      name="Carlos M."
+      text="Lo contratamos para traslados corporativos y han sido súper profesionales."
+    />
+    <CardTestimonial 
+      name="Ana G."
+      text="Usamos su servicio para nuestra boda y todos llegaron a tiempo. ¡Excelente atención!"
+    />
+    <CardTestimonial 
+      name="Pedro A."
+      text="Excelente servicio, llegaron puntuales y el chofer súper amable. Sin duda los volveré a contratar."
+    />
+</section>

@@ -1,0 +1,26 @@
+---
+  const { titleTag, title, description, imageUrl, style } = Astro.props;
+---
+<div class:list={[
+  "relative flex flex-col gap-4 min-h-[350px] md:h-[250px]",
+]}>
+  <div class:list={[
+    "overflow-hidden h-[230px] bg-cover bg-top bg-no-repeat rounded-2xl",
+  ]} style=`background-image:url(${imageUrl})`/>
+
+  <div class:list={[
+    "absolute px-6 top-48 min-h-[230px] max-w-[500px]",
+    style
+  ]}>
+    <div class="bg-slate-50 px-4 pt-4 rounded-2xl">
+      <h3>
+        <!-- <span class="text-sm/relaxed text-slate-600 font-medium uppercase block mb-0.5">{titleTag} </span> -->
+        <span class="text-4xl font-title font-bold">{title}</span>
+      </h3>
+      <p class="text-lg/relaxed mt-4">
+        {description}
+        <!-- Puntualidad y profesionalismo garantizados. -->
+      </p>
+    </div>
+  </div>
+</div>
