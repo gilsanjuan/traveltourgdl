@@ -15,6 +15,7 @@ import { DialogContentSuccessMessage } from "./dialog-content-success-message"
 
 import summaryValues from "./data"
 import { FormSchema } from "./schema"
+import { set } from "date-fns";
 
 const destinoPlaceholders = [
   'Expo Guadalajara',
@@ -23,6 +24,9 @@ const destinoPlaceholders = [
 
 export default function QuoteForm() {
   const [canOpen, setCanOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [formSent, setFormSent] = useState(false)
+
   const {
     watch,
     reset,
@@ -30,7 +34,7 @@ export default function QuoteForm() {
     setValue,
     getValues,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful, isLoading },
+    formState: { errors, isLoading },
   } = useForm<z.infer<typeof FormSchema>>({
     shouldUseNativeValidation: true,
     defaultValues: {
@@ -53,6 +57,19 @@ export default function QuoteForm() {
     return () => subscription.unsubscribe();
   }, [watch]);
   
+  const resetState = () => {
+    setValue("destination", '')
+    setValue("origin", '')
+    setValue("contactName", '')
+    setValue("contactPhone", '')
+    setValue("contactEmail", '')
+  }
+  
+  const submitSuccess = () => {
+    setFormSent(true)
+    setIsOpen(true)
+  }
+
   const onSubmit: SubmitHandler<Inputs> = async (values) => {
     const jsonData = JSON.stringify(values)
     const result = await fetch('/api/quote', {
@@ -64,10 +81,10 @@ export default function QuoteForm() {
     });
     
     const data = await result.json()
-    console.warn('data', data)
-    
+  
     if (data.success === true) {
-      reset()
+      submitSuccess()
+      resetState()
     } else {
       console.error('Error:', data);
     }
@@ -77,7 +94,8 @@ export default function QuoteForm() {
     <form className="flex flex-col md:flex-row justify-between gap-4 bg-slate-50 rounded-lg relative z-30">
       <fieldset className="flex w-full justify-between md:flex-col md:w-[200px]">
         <div className={[
-          "flex items-center bg-slate-200 ps-5 rounded-tl-lg text-white w-full h-full transition-colors ease-in checked:bg-slate-300",
+          "flex items-center bg-slate-200 ps-3 rounded-tl-lg text-white w-full h-full transition-colors ease-in checked:bg-slate-300",
+          "md:ps-5",
           getValues("tripType") === 'punto-punto' ? 'bg-slate-300' : 'bg-slate-200',
         ].join(' ')}>
           <input 
@@ -94,11 +112,12 @@ export default function QuoteForm() {
             htmlFor="bordered-radio-1" 
             className="w-full p-3 ps-2 text-gray-900 peer-checked:font-medium dark:text-gray-300 cursor-pointer"
           >
-              Punto a punto
+            Punto a punto
           </label>
         </div>
         <div className={[
-          "flex items-center bg-slate-200 ps-5 text-white w-full h-full rounded-lr-lg border-l border-slate-300 lg:border-t lg:rounded-bl-lg",
+          "flex items-center bg-slate-200 ps-3 text-white w-full h-full rounded-tr-lg border-l border-slate-300 md:rounded-tr-none lg:border-t lg:rounded-bl-lg",
+          "md:ps-5",
           getValues("tripType") === 'fuera-ciudad' ? 'bg-slate-300' : 'bg-slate-200',
         ].join(' ')}>
           <input 
@@ -169,10 +188,18 @@ export default function QuoteForm() {
           />
         </div>
         
-        <DialogForm 
+        <DialogForm
+          isOpen={isOpen}
           canOpen={canOpen}
+          setIsOpen={setIsOpen}
+          onOpenChange={(open) => {
+            setIsOpen(open)
+            if (setFormSent) {
+              setFormSent(false)
+            }
+          }}
         >
-          { isSubmitSuccessful
+          { formSent
             ? <DialogContentSuccessMessage />
             : <DialogContentForm 
                 handleSubmit={handleSubmit(onSubmit)}

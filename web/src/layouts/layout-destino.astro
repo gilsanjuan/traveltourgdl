@@ -4,7 +4,7 @@ import Footer from './Footer.astro'
 import WhatsappLink from '../components/WhatsappLink.astro'
 import '../styles/global.css'
 
-const { heroImage, navStyle, meta } = Astro.props
+const { heroImage, title, navStyle, } = Astro.props
 ---
 
 <!doctype html>
@@ -12,21 +12,21 @@ const { heroImage, navStyle, meta } = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Travel & Tours</title>
+		<title>{`${title +  " | Travel & Tour GDL"}`}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="description" content={`Viajes y turismo a ${title + " | Travel & Tour GDL"}`} />
 		
-		<meta name="og:url" content="https://travel-tours-gdl.com" />
+		<meta name="og:url" content="https://traveltourgdl.com" />
 		<meta name="og:type" content="website" />
-		<meta name="og:title" content={`${meta?.title +  " | Travel & Tours"}`} />
-		<meta name="og:description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="og:title" content={`${title +  " | Travel & Tour GDL"}`} />
 		<meta name="og:image" content="summary_large_image" />
+		<meta name="og:description" content={`Viajes y turismo a ${title + " | Travel & Tour GDL"}`} />
+
+		<meta name="twitter:url" content="https://traveltourgdl.com" />
+		<meta name="twitter:site" content="@travelandtourgdl" />
+		<meta name="twitter:title" content={`${title +  " | Travel & Tour GDL"}`} />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:domain" content="travel-tours-gdl.com" />
-		<meta name="twitter:url" content="https://travel-tours-gdl.com" />
-		<meta name="twitter:site" content="@travelandtours" />
-		<meta name="twitter:title" content="Travel & Tours" />
-		<meta name="twitter:description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="twitter:description" content={`Viajes y turismo a ${title + " | Travel & Tour GDL"}`} />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,7 @@ const { heroImage, navStyle, meta } = Astro.props
 	<body class="relative w-full bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-200">
 		<Header
 			heroImage={heroImage} 
+			navStyle={navStyle}
 		>
 			<slot name="header" />
 		</Header>

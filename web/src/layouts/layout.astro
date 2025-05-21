@@ -13,22 +13,21 @@ const { heroImage, navStyle } = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Travel & Tours</title>
+		<title>Travel & Tour GDL</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="description" content="Viajes y turismo desde Jalisco a todo México." />
 		
-		<meta name="og:url" content="https://travel-tours-gdl.com" />
+		<meta name="og:url" content="https://traveltourgdl.com" />
 		<meta name="og:type" content="website" />
-		<meta name="og:title" content="Travel & Tours" />
-		<meta name="og:description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="og:title" content="Travel & Tour GDL" />
 		<meta name="og:image" content="summary_large_image" />
+		<meta name="og:description" content="Viajes y turismo desde Jalisco a todo México." />
 		
+		<meta name="twitter:url" content="https://traveltourgdl.com" />
+		<meta name="twitter:site" content="@travelandtourgdl" />
+		<meta name="twitter:title" content="Travel & Tour GDL" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:domain" content="travel-tours-gdl.com" />
-		<meta name="twitter:url" content="https://travel-tours-gdl.com" />
-		<meta name="twitter:site" content="@travelandtours" />
-		<meta name="twitter:title" content="Travel & Tours" />
-		<meta name="twitter:description" content="Travel & Tours de Jalisco a Todo México." />
+		<meta name="twitter:description" content="Viajes y turismo desde Jalisco a todo México." />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,10 +40,10 @@ const { heroImage, navStyle } = Astro.props
 			heroImage={heroImage} 
 			navStyle={navStyle}
 		>
-			<h2 class="text-slate-50 font-title text-pretty text-6xl/tight font-bold text-shadow-xl text-shadow-white md:text-8xl/tight"
+			<h2 class="text-slate-50 font-title text-pretty text-5xl/tight font-bold text-shadow-xl text-shadow-white md:text-8xl/tight"
 				style={{ textShadow: "2px 2px 3px rgba(0,0,0,0.6)" }}
 			>
-				Viaja seguro,<br> cómodo 	y a tiempo
+				Viaja seguro,<br> cómodo y a tiempo
 			</h2>
 			<h1 class="text-slate-50 ml-2 mt-4 text-2xl/relaxed text-shadow-xl text-shadow-slate-800 md:text-3xl/relaxed"
 				style={{ textShadow: "1px 2px 3px rgba(0,0,0,0.6)" }}
@@ -57,7 +56,7 @@ const { heroImage, navStyle } = Astro.props
 				</div>
 			</div>
 		</Header>
-		<main class=" max-w-8xl mx-auto px-8">
+		<main class=" max-w-8xl mx-auto px-4 md:px-8">
 			<slot />
 		</main>
 		<WhatsappLink />

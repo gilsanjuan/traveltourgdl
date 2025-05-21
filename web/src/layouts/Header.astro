@@ -11,15 +11,15 @@ let heroStyle = navStyle ? ' pb-2' : ' md:-mt-24';
 	</div>
   <section class="@container">
 		<div class:list={[
-				"z-0 flex flex-col justify-end items-center align-middle rounded-b-4xl md:h-[960px] lg:h-[800px]",
-				"px-8 bg-cover bg-bottom bg-no-repeat", 
+				"z-0 flex flex-col justify-end items-center align-middle rounded-b-xl md:rounded-b-4xl md:h-[960px] lg:h-[800px]",
+				"px-2 bg-cover bg-bottom bg-no-repeat md:px-8 lg:px-16", 
 				heroStyle,
 			]}
 			style={`background-image: url('${heroImage ?? "/images/hero.jpg"}');`}
 		>
 			<div class:list={[
-				"flex flex-col justify-center lg:w-5xl",
-				"dark:bg-gradient-to-t from-slate-950 to-slate-900/0 to-40% pt-10 pb-2 lg:py-16 mb-10"
+				"flex flex-col justify-center px-1 pt-4 lg:py-16 mb-10 md:pt-10 lg:w-5xl ",
+				"dark:bg-gradient-to-t from-slate-950 to-slate-900/0 to-40%"
 			]}>
 				<slot />				
 			</div>

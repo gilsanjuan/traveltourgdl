@@ -2,11 +2,11 @@
  const { textColor, iconColor, iconBgColor } = Astro.props;
 ---
 
-<div class="flex items-center gap-2 w-[360px]">
-  <div class={`flex size-10 items-center justify-center rounded-full ${iconBgColor} mt-1`}>
+<div class="flex items-center gap-2 w-[240px] md:w-[360px]">
+  <div class={`flex mt-1 size-8 items-center justify-center rounded-full ${iconBgColor} md:size-10`}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" 
       class:list={[
-        "size-5 -ml-0.5 ", 
+        "size-4 -ml-0.5 -mt-0.5 md:mt-0 md:size-5",
         iconColor,
       ]}
     >
@@ -14,9 +14,9 @@
     </svg>
   </div>
   <div class="relative">
-    <span class={`uppercase font-black text-2xl pr-2 ${textColor}`}>Travel </span>
-    <span class={`absolute bottom-0 font-medium left-[92px] uppercase text-lg m-0 p-0 ${textColor}`}>&</span>
-    <span class={`uppercase font-black text-2xl pl-1 ${textColor}`}> Tour</span>
-    <span class={`font-medium text-2xl ${textColor}`}>GDL</span>
+    <span class={`uppercase font-black pr-2 text-xl md:text-2xl ${textColor}`}>Travel </span>
+    <span class={`absolute font-medium -bottom-0.5 left-[77px] md:bottom-0 md:left-[92px] uppercase text-lg m-0 p-0 ${textColor}`}>&</span>
+    <span class={`uppercase font-black pl-1 text-xl md:text-2xl ${textColor}`}> Tour</span>
+    <span class={`font-medium text-xl md:text-2xl ${textColor}`}>GDL</span>
   </div>
 </div>

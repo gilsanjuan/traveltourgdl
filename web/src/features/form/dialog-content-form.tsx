@@ -35,7 +35,7 @@ export function DialogContentForm({
         </DialogDescription>
       </DialogHeader>
       
-      <div className="grid grid-cols-2 gap-y-8 md:grid-cols-3 py-4">
+      <div className="space-y-2 md:grid grid-cols-3 gap-y-8 md:py-2">
         <div>
           <span className="pr-1 block">Origen: </span> 
           <span className="font-bold capitalize">
@@ -51,28 +51,28 @@ export function DialogContentForm({
         </div>
 
         <div>
-          <span className="pr-1 block">No. Pasajeros: </span>
-          <span className="font-bold capitalize">
+          <span className="pr-1 md:block">No. Pasajeros: </span>
+          <span className="font-bold">
             { getValues("passengers") ? (summaryValues['passengers'][String(getValues("passengers"))] || '') : '' }
           </span>
         </div>
         
         <div>
           <span className="pr-1 block">Fecha de salida: </span>
-          <span className="font-bold capitalize">
+          <span className="font-bold">
             { getValues("departureDate") ? format( getValues('departureDate'), 'PPPP', {locale: es}) : '' }
           </span>
         </div>
         
         <div>
           <span className="pr-1 block">Fecha de regreso: </span>
-          <span className="font-bold capitalize">
+          <span className="font-bold">
             { getValues("returnDate") ? format( getValues('returnDate'), 'PPPP', {locale: es}) : '' }
           </span>
         </div>
       </div> 
 
-      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 pt-8 pb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 md:pt-8 md:pb-6">
         <div>
           <InputForm
             {...register("contactName", { required: true })}
@@ -100,7 +100,7 @@ export function DialogContentForm({
           
         </div>
       </div>
-      {/* DialogFooter  */}
+
       <DialogFooter>
         <Button 
           type="submit"
@@ -114,6 +114,7 @@ export function DialogContentForm({
           Solicitar cotización
         </Button>
       </DialogFooter>
+      
     </DialogContent>
   );
 }
