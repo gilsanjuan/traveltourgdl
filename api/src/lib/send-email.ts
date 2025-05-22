@@ -14,15 +14,13 @@ export async function sendEmail({
   message,
   context,
 }: SendEmail) {
-  const RESEND_API_KEY = context.env.RESEND_API_KEY;
-  
   try {
-    const resend = new Resend(RESEND_API_KEY);
-    resend.emails.send({
+    const resend = new Resend(context.env.RESEND_API_KEY);
+    await resend.emails.send({
       from: `${name} <${from}>`,
       to: "contacto@traveltourgdl.com",
       subject: "Cotización de viaje desde el sitio web",
-      html: `${message}`
+      text: `${message}`
     });
   } catch (e) {
     return {
@@ -30,6 +28,7 @@ export async function sendEmail({
       message: "Error al enviar el correo electrónico. Por favor intenta nuevamente más tarde."
     }
   }
+  
   return {
     success: true, 
     message: "Gracias por tu consulta, pronto nos pondremos en contacto contigo lo más pronto posible" 
