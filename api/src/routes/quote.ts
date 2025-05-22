@@ -83,16 +83,22 @@ quoteRouter.post(
         `,
         context: c
       })
-      console.warn("EMAIL RESULT: ", emailResult);
 
-      return c.json({
-        success: true,
-        message: "Gracias por tu consulta, pronto nos pondremos en contacto contigo lo más pronto posible"
-      }, 200);
+      if (!emailResult.success) {
+        return c.json({
+          success: false,
+          message: emailResult.message
+        }, 500);
+      } else {
+        return c.json({
+          success: true,
+          message: "Pronto nos pondremos en contacto contigo."
+        }, 200);
+      }
     } catch (error) {
       return c.json({
         success: false,
-        message: "Error interno del servidor"
+        message: "algo salió mal, por favor intenta nuevamente más tarde."
       }, 500);
     }
   }

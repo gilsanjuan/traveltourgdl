@@ -31,7 +31,8 @@
     }
   ],
   "vars": {
-    "LOG_LEVEL": "debug"
+    "LOG_LEVEL": "debug",
+    "RESEND_API_KEY": "re_HDzd4okC_DjnnCFVBVT1bUTZ2km7TPsUu"
   },
   "observability": {
     "enabled": true,
