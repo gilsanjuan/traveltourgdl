@@ -9,7 +9,6 @@ type SendEmail = {
 }
 
 export async function sendEmail({
-  name,
   from,
   message,
   context,
@@ -17,9 +16,9 @@ export async function sendEmail({
   try {
     const resend = new Resend(context.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: `${name} <${from}>`,
-      to: "contacto@traveltourgdl.com",
-      subject: "Cotización de viaje desde el sitio web",
+      from: `onboarding@resend.dev`,
+      to: ["contacto@traveltourgdl.com"],
+      subject: "Solicitud de Cotización desde sitio web",
       text: `${message}`
     });
   } catch (e) {
@@ -28,7 +27,7 @@ export async function sendEmail({
       message: "Error al enviar el correo electrónico. Por favor intenta nuevamente más tarde."
     }
   }
-  
+
   return {
     success: true, 
     message: "Gracias por tu consulta, pronto nos pondremos en contacto contigo lo más pronto posible" 

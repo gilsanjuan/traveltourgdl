@@ -15,7 +15,6 @@ import { DialogContentSuccessMessage } from "./dialog-content-success-message"
 
 import summaryValues from "./data"
 import { FormSchema } from "./schema"
-import { set } from "date-fns";
 
 const destinoPlaceholders = [
   'Expo Guadalajara',
@@ -29,7 +28,6 @@ export default function QuoteForm() {
 
   const {
     watch,
-    reset,
     register,
     setValue,
     getValues,
