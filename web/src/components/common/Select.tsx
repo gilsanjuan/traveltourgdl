@@ -32,9 +32,19 @@ return (
       ? (<span className="absolute top-4 left-3">{icon}</span>)
       : null
     }
+    <div className="absolute top-4 right-2.5">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" 
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+        className="size-5"
+      >
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </div>
     <select 
       id={`${label}-select`} 
-      className={cn("block w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-lg",
+      className={cn(
+        "block w-full px-4 pr-7 py-3 text-gray-900 border border-gray-300 rounded-lg appearance-none",
         "bg-gray-50 focus:ring-blue-500 focus:border-blue-500 cursor-pointer",
         "dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
         icon ? "pl-8" : "",

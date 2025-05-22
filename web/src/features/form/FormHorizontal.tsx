@@ -15,6 +15,7 @@ import { DialogContentSuccessMessage } from "./dialog-content-success-message"
 
 import summaryValues from "./data"
 import { FormSchema } from "./schema"
+import { cn } from "../../lib/utils";
 
 const destinoPlaceholders = [
   'Expo Guadalajara',
@@ -22,6 +23,7 @@ const destinoPlaceholders = [
 ]
 
 export default function QuoteForm() {
+  const [tripType, setTripType] = useState<"punto-punto" | "fuera-ciudad">('punto-punto')
   const [canOpen, setCanOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [formSent, setFormSent] = useState(false)
@@ -36,7 +38,7 @@ export default function QuoteForm() {
   } = useForm<z.infer<typeof FormSchema>>({
     shouldUseNativeValidation: true,
     defaultValues: {
-      tripType: 'punto-punto',
+      tripType: tripType,
     }
   })
 
@@ -91,11 +93,11 @@ export default function QuoteForm() {
   return (
     <form className="flex flex-col md:flex-row justify-between gap-4 bg-slate-50 rounded-lg relative z-30">
       <fieldset className="flex w-full justify-between md:flex-col md:w-[200px]">
-        <div className={[
+        <div className={cn(
           "flex items-center bg-slate-200 ps-3 rounded-tl-lg text-white w-full h-full transition-colors ease-in checked:bg-slate-300",
           "md:ps-5",
-          getValues("tripType") === 'punto-punto' ? 'bg-slate-300' : 'bg-slate-200',
-        ].join(' ')}>
+          tripType === 'punto-punto' ? 'bg-slate-300' : 'bg-slate-200',
+        )}>
           <input 
             id="bordered-radio-1" 
             type="radio" 
@@ -104,6 +106,7 @@ export default function QuoteForm() {
             {...register("tripType", { required: true })}
             onClick={() => {
               setValue("tripType", 'punto-punto')
+              setTripType('punto-punto')
             }}
           />
           <label 
@@ -113,13 +116,13 @@ export default function QuoteForm() {
             Punto a punto
           </label>
         </div>
-        <div className={[
+        <div className={cn(
           "flex items-center bg-slate-200 ps-3 text-white w-full h-full rounded-tr-lg",
           "border-l border-slate-300 md:rounded-tr-none lg:border-t lg:rounded-bl-lg",
           "md:ps-5",
-          getValues("tripType") === 'fuera-ciudad' ? 'bg-slate-300' : 'bg-slate-200',
-        ].join(' ')}>
-          <input 
+          tripType === 'fuera-ciudad' ? 'bg-slate-300' : 'bg-slate-200',
+        )}>
+          <input
             type="radio" 
             value='fuera-ciudad' 
             id="bordered-radio-2" 
@@ -127,6 +130,7 @@ export default function QuoteForm() {
             {...register("tripType")} 
             onClick={() => {
               setValue("tripType", 'fuera-ciudad')
+              setTripType('fuera-ciudad')
             }}
           />
           <label 

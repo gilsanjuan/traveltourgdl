@@ -16,12 +16,12 @@ export default function InputForm({
 }) {
   return (
     <div className="relative">
-      {icon && <span className="absolute top-5 left-3">{icon}</span>}
+      {icon && <span className="absolute top-4.5 left-3">{icon}</span>}
       <input type="text" 
         id={`${label}-input`} 
         placeholder={placeholder} 
         className={[
-          "block px-2.5 pb-2.5 pt-4 w-full text-slate-800 bg-transparent rounded-lg border-1 border-gray-300",
+          "block px-2.5 py-3 w-full text-slate-800 bg-transparent rounded-lg border-1 border-gray-300",
           "appearance-none dark:text-white focus:outline-none focus:ring-0 placeholder:text-slate-500",
           " focus:placeholder:text-slate-300 peer cursor-pointer",
           icon ? "pl-9" : "",
