@@ -34,7 +34,7 @@ export default function QuoteForm() {
     setValue,
     getValues,
     handleSubmit,
-    formState: { errors, isLoading },
+    formState: { errors, isSubmitting },
   } = useForm<z.infer<typeof FormSchema>>({
     shouldUseNativeValidation: true,
     defaultValues: {
@@ -207,7 +207,7 @@ export default function QuoteForm() {
                 getValues={getValues}
                 errors={errors}
                 register={register}
-                isLoading={isLoading}
+                isLoading={isSubmitting}
               />
           }
         </DialogForm>
