@@ -13,21 +13,21 @@ let heroStyle = navStyle ? ' pb-2' : ' md:-mt-24';
   <section class="@container z-0">
 		<div class:list={[
 				"z-0 flex flex-col justify-end items-center align-middle rounded-b-4xl md:h-[960px] lg:h-[800px]",
-				"px-8 bg-cover bg-bottom bg-no-repeat backdrop-brightness-50",
+				"px-3 bg-cover bg-bottom bg-no-repeat backdrop-brightness-50",
 				heroStyle,
 			]}
-			style={`background-image: url('${heroImage ?? "/images/coast.jpg"}');`}
+			style={`background-image: url('${heroImage ?? "/images/hero.jpg"}');`}
 		>
-			<div class="absolute w-full top-0 h-full size-20 bg-black/30 backdrop-brightness-90 z-0 rounded-b-4xl"></div>
+			<div class="absolute w-full top-0 h-full size-20 bg-black/30 backdrop-brightness-90 z-0 rounded-b-xl md:rounded-b-4xl"></div>
 			<div class:list={[
-				"flex flex-col justify-center md:w-5xl z-10",
-				"dark:bg-gradient-to-t from-slate-950 to-slate-900/0 to-40% py-16 mb-10"
+				"flex flex-col justify-center px-1 z-10 h-screen md:w-5xl lg:py-16 md:mb-10",
+				"dark:bg-gradient-to-t from-slate-950 to-slate-900/0 to-40%"
 			]}>
 				<slot />				
 			</div>
 			<div id="cotizar" class="container mx-auto max-w-5xl shadow-xl mb-10">
-				<div class="mt-6">
-					<FormJsx client:load />
+				<div class="mt-4">
+					<FormJsx client:idle />
 				</div>
 			</div>
 		</div>

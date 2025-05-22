@@ -3,7 +3,7 @@ import Logo from "../components/Logo.astro"
 import { menuGdl, menuMexico, menuPueblos } from "../content/menu";
 ---
 
-<footer class="bg-blue-950 space-y-8 px-12 py-16 mt-36 rounded-t-xl md:rounded-t-4xl">
+<footer class="bg-blue-950 space-y-8 px-6 py-8 md:px-12 md:py-16 mt-36 rounded-t-xl md:rounded-t-4xl">
   <div class="mx-auto w-full">
     <div class="sm:flex sm:flex-row sm:items-center sm:justify-between mb-8">
       <Logo 
@@ -40,7 +40,7 @@ import { menuGdl, menuMexico, menuPueblos } from "../content/menu";
       </ul> -->
     </div>
 
-    <div class="grid grid-cols-1 gap-8 gap-y-24 pt-8 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="grid grid-cols-1 gap-8 pt-4 gap-y-12 md:pt-8 md:gap-y-24 sm:grid-cols-2 lg:grid-cols-5">
       <div>
         <p class="text-lg font-semibold text-slate-400">Servicios</p>
 
@@ -113,7 +113,14 @@ import { menuGdl, menuMexico, menuPueblos } from "../content/menu";
         
         <ul class="space-y-4 text-base text-slate-300 pt-3 ps-3">
           <li>
-            <a href="#servicios" class="transition hover:opacity-75">Tel: 33 3333 3333</a>
+              <a 
+                target="_blank"
+                href="https://wa.me/+523313977239" 
+                class="transition hover:opacity-75"
+              >
+                WhatsApp:<br />
+                +52 33 1397 7239
+              </a>
           </li>
         </ul>
 
@@ -128,6 +135,6 @@ import { menuGdl, menuMexico, menuPueblos } from "../content/menu";
         </ul>
       </div>
     </div>
-    <p class="text-sm text-slate-400 mt-20">&copy; 2025. Transporte GDL. Todos los derechos reservados.</p>
+    <p class="text-sm text-slate-400 mt-20">&copy; 2025. Travel & Tour GDL. Todos los derechos reservados.</p>
   </div>
 </footer>

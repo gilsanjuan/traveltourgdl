@@ -116,7 +116,8 @@ export default function QuoteForm() {
           </label>
         </div>
         <div className={[
-          "flex items-center bg-slate-200 ps-3 text-white w-full h-full rounded-tr-lg border-l border-slate-300 md:rounded-tr-none lg:border-t lg:rounded-bl-lg",
+          "flex items-center bg-slate-200 ps-3 text-white w-full h-full rounded-tr-lg",
+          "border-l border-slate-300 md:rounded-tr-none lg:border-t lg:rounded-bl-lg",
           "md:ps-5",
           getValues("tripType") === 'fuera-ciudad' ? 'bg-slate-300' : 'bg-slate-200',
         ].join(' ')}>

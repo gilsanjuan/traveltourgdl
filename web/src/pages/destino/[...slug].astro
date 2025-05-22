@@ -24,24 +24,25 @@ const { Content } = await render(destino);
 	navStyle="bg-white"
 >
 	<div slot="header">
-		<h1 class="text-slate-50 font-title text-pretty text-8xl/tight font-bold text-shadow-xl text-shadow-white"
+		<h1 class="text-slate-50 font-title text-pretty text-4xl/tight md:text-8xl/tight font-bold text-shadow-xl text-shadow-white"
 			style={{ textShadow: "2px 2px 3px rgba(0,0,0,0.6)" }}
 		>
 			{destino.data.title}
 		</h1>
-		<h2 class="text-slate-50 ml-2 mt-4 text-pretty text-3xl/relaxed text-shadow-xl text-shadow-slate-800"
+		<h2 class="text-slate-50 mt-8 md:mt-4 text-pretty text-2xl/relaxed md:text-3xl/relaxed text-shadow-xl text-shadow-slate-800"
 			style={{ textShadow: "1px 2px 3px rgba(0,0,0,0.6)" }}
 		>
 			{destino.data.subtitle}
 		</h2>
 	</div>
 	<main class:list={[
-		"max-w-8xl mx-auto my-30",
+		"max-w-8xl mx-auto mt-20 mb-30",
 		"prose prose-h1:font-bold prose-h1:text-3xl",
-		"prose-p:text-lg prose-p:text-justify prose-ul:list-disc prose-ul:list-inside prose-ul:text-lg",
+		"prose-p:text-lg prose-p:text-justify",
+		"pprose-ul:list-disc prose-ul:list-outside prose-ul:text-lg md:prose-ul:list-inside",
 		"prose-img:rounded-xl"
 	]}>
-	<div class="max-w-screen-lg mx-auto">
+	<div class="max-w-screen-lg mx-auto px-4">
 		<Content />
 	</div>
 	</main>
